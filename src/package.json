@@ -13,7 +13,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "npx tsc main.ts && electron .",
-    "build": "electron-builder build -l",
+    "build": "electron-builder build --armv7l",
     "clear": "rm -rf ./build/* && touch ./build/.gitkeep"
   },
   "build": {

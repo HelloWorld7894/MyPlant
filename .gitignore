@@ -1,3 +1,8 @@
 /src/node_modules
-/src/build
 /src/package-lock.json
+
+# on build
+/src/build/linux-unpacked
+/src/build/linux-armv7l-unpacked
+/src/build/builder-debug.yml
+/src/build/builder-effective-config.yaml
