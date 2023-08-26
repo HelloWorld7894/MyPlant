@@ -17,8 +17,8 @@ function drawChart() {
   
     // Optional; add a title and set the width and height of the chart
     var options = {
-        width:690, 
-        height:400, 
+        width: 250, 
+        height: 250, 
         backgroundColor: 'transparent',
         legend: 'none',
         is3D: true,
