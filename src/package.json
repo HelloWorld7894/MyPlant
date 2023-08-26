@@ -1,0 +1,36 @@
+{
+  "devDependencies": {
+    "@types/electron": "^1.6.10",
+    "typescript": "^5.1.6"
+  },
+  "name": "myplant",
+  "productName": "My-Plant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "author": "Daniel Pojhan <danpojhan@gmail.com>",
+  "homepage": "https://github.com/HelloWorld7894/MyPlant",
+  "license": "GPL-3.0",
+  "scripts": {
+    "start": "npx tsc main.ts && electron .",
+    "build": "electron-builder build -l",
+    "clear": "rm -rf ./build/* && touch ./build/.gitkeep"
+  },
+  "build": {
+    "appId": "com.sedacmanager.app",
+    "directories":{
+      "output": "./build/",
+      "buildResources": "resources"
+      },
+      "extraResources": [
+          {
+              "from": "./res/img/",
+              "to": "img"
+          }
+      ],
+      "linux":{
+      "target": "deb",
+      "icon": "./res/img/sedac-manager-logo.png"
+      }
+  }
+}
