@@ -1,10 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inria+Sans&family=Saira&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
         <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script> 
+        <script src="index.js"></script>
     </head>
     <body>
-        <h2>Balls</h2>
+        <ul id="nav">
+            <li><a href="#home">Aktualizace systému</a></li>
+            <li><a href="#news">Vypnout</a></li>
+            <li><a href="#contact">Aktualizace měření</a></li>
+            <li><a href="#contact">Připojení k internetu</a></li>
+        </ul>
+        <div style="margin-left: 50px;">
+            <div id="header">
+                <h1 id="header-text">MyPlant dashboard</h1>
+                <hr>
+            </div>
+            <div class="data">
+                <p>Stav: <span class="vals">ONLINE</span></p>
+                <p>Komunikace se senzory: <span class="vals">ANO</span></p>
+                <p>Dostatek světla: <span class="vals">ANO</span></p>
+            </div>
+            <div class="spec-data">
+                <div class="graph">
+                    <div id="progress-bar-container">
+                        <div class="progress-bar-child progress"></div>
+                        <div class="progress-bar-child shrinker"></div>
+                    </div>
+                    <p class="info-text">Vlhkost</p>
+                </div>
+                <div class="graph">
+                    <div id="piechart"></div>
+                    <p class="info-text">Složení vzduchu</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
