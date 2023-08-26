@@ -4,8 +4,8 @@ import {app, BrowserWindow, ipcMain, screen} from "electron"
 var main: Window;
 
 const main_dict = {
-    width: 1000,
-    height: 600,
+    width: 800,
+    height: 480,
     title: "MyPlant",
     webPreferences: {
         nodeIntegration: true,

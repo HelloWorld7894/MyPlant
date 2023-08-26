@@ -4,15 +4,15 @@ var electron_1 = require("electron");
 //window variable declarations
 var main;
 var main_dict = {
-    width: 1000,
-    height: 600,
+    width: 800,
+    height: 480,
     title: "MyPlant",
     webPreferences: {
         nodeIntegration: true,
         contextIsolation: false
     },
     resizable: true,
-    fullscreen: true
+    fullscreen: false
 };
 var Window = /** @class */ (function () {
     function Window(config, path) {
