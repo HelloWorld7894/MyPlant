@@ -11,13 +11,13 @@ var main_dict = {
         nodeIntegration: true,
         contextIsolation: false
     },
-    resizable: false
+    resizable: true,
+    fullscreen: true
 };
 var Window = /** @class */ (function () {
     function Window(config, path) {
         Window.window = new electron_1.BrowserWindow(config);
         Window.window.setMenu(null);
-        Window.window.webContents.openDevTools();
         Window.path_load = path;
     }
     Window.prototype.close = function () {

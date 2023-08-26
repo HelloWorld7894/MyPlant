@@ -11,7 +11,8 @@ const main_dict = {
         nodeIntegration: true,
         contextIsolation: false
     },
-    resizable: false
+    resizable: true,
+    fullscreen: true
 }
 
 class Window{
@@ -30,7 +31,6 @@ class Window{
     public constructor(config: any, path: string){
         Window.window = new BrowserWindow(config);
         Window.window.setMenu(null);
-        Window.window.webContents.openDevTools()
 
         Window.path_load = path
     }
