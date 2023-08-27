@@ -12,7 +12,7 @@ const main_dict = {
         contextIsolation: false
     },
     resizable: true,
-    fullscreen: false
+    fullscreen: true
 }
 
 class Window{
