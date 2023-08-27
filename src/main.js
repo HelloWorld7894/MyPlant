@@ -32,3 +32,12 @@ electron_1.app.on("ready", function () {
     main = new Window(main_dict, "./ui/index.html");
     main.show();
 });
+electron_1.ipcMain.on("actions", function (event, data) {
+    switch (data) {
+        case "leave":
+            main.close();
+            break;
+        case "turnoff":
+            break;
+    }
+});

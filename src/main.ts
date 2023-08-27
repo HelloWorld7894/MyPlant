@@ -1,4 +1,4 @@
-import {app, BrowserWindow, ipcMain, screen} from "electron"
+import {app, BrowserWindow, ipcMain} from "electron"
 
 //window variable declarations
 var main: Window;
@@ -39,4 +39,15 @@ class Window{
 app.on("ready", () => {
     main = new Window(main_dict, "./ui/index.html")
     main.show()
+})
+
+
+ipcMain.on("actions", (event, data) => {
+    switch(data){
+        case "leave":
+            main.close()
+            break
+        case "turnoff":
+            break
+    }
 })

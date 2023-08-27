@@ -1,3 +1,5 @@
+const ipcRender = require("electron").ipcRenderer
+
 //init setup
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -28,4 +30,8 @@ function drawChart() {
     // Display the chart inside the <div> element with id="piechart"
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
     chart.draw(data, options);
-  }
+}
+
+function leave(){
+    ipcRender.send("actions", "leave")
+}
