@@ -1,4 +1,5 @@
 import {app, BrowserWindow, ipcMain} from "electron"
+import {exec} from 'child_process';
 
 //window variable declarations
 var main: Window;
@@ -49,5 +50,23 @@ ipcMain.on("actions", (event, data) => {
             break
         case "turnoff":
             break
+    }
+})
+
+ipcMain.on("getdata", (event, data) => {
+    switch(data){
+        case "temp":
+            exec("./getdata.py", (error, stdout, stderr) => {
+                if (error){
+                    console.log(`error: ${error.message}`);
+                    return;
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                    return;
+                }
+                console.log(`stdout: ${stdout}`);
+                event.reply("getdata-reply", stdout)
+            })
     }
 })

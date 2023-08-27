@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron_1 = require("electron");
+var child_process_1 = require("child_process");
 //window variable declarations
 var main;
 var main_dict = {
@@ -12,7 +13,7 @@ var main_dict = {
         contextIsolation: false
     },
     resizable: true,
-    fullscreen: false
+    fullscreen: true
 };
 var Window = /** @class */ (function () {
     function Window(config, path) {
@@ -39,5 +40,22 @@ electron_1.ipcMain.on("actions", function (event, data) {
             break;
         case "turnoff":
             break;
+    }
+});
+electron_1.ipcMain.on("getdata", function (event, data) {
+    switch (data) {
+        case "temp":
+            (0, child_process_1.exec)("./getdata.py", function (error, stdout, stderr) {
+                if (error) {
+                    console.log("error: ".concat(error.message));
+                    return;
+                }
+                if (stderr) {
+                    console.log("stderr: ".concat(stderr));
+                    return;
+                }
+                console.log("stdout: ".concat(stdout));
+                event.reply("getdata-reply", stdout);
+            });
     }
 });

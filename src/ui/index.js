@@ -35,3 +35,13 @@ function drawChart() {
 function leave(){
     ipcRender.send("actions", "leave")
 }
+
+function update_data(){
+    let temp = document.getElementsByClassName("val-float")
+    ipcRender.send("getdata", "temp")
+    ipcRender.on("getdata-reply", (event, data) => {
+        temp[0].innerHTML = data
+    })
+}
+
+setInterval(update_data, 1000)
