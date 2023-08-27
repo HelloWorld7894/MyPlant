@@ -1,19 +1,12 @@
-#!/usr/bin/python3
-
-import time
-import os
 import serial
-
-serial_connected = 0
-
-if os.path.exists('/dev/ttyACM0') == True:
-    ser = serial.Serial('/dev/ttyACM0', 115200)
-    serial_connected = 1
-    time.sleep(1)
+import time
 
 
-time.sleep(1)
-x = ser.readline().decode("utf-8")
-print(x)
+s = serial.Serial(port="/dev/ttyACM0", parity=serial.PARITY_EVEN, stopbits=serial.STOPBITS_ONE, timeout=1)
+s.flush()
 
-ser.close()
+s.write("read-temp\r".encode())
+mes = s.readline().strip()
+print(mes)
+
+s.close()
