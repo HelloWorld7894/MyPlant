@@ -12,13 +12,14 @@
     <body>
         <ul id="nav">
             <p>Aktualizace</p>
-            <li><a href="#home">Aktualizace systému</a></li>
-            <li><a href="#contact">Aktualizace měření</a></li>
+            <li><a onclick="update_sys()">Aktualizace systému</a></li>
+            <li><a onclick="update_app()">Aktualizace aplikace</a></li>
+            <li><a onclick="update_measurement()">Aktualizace měření</a></li>
             <p>Systém</p>
-            <li><a href="#contact">Připojení k internetu</a></li>
+            <li><a onclick="internet_connection()">Připojení k internetu</a></li>
             <li><a onclick="turnoff()">Vypnout</a></li>
             <p>Aplikace</p>
-            <li><a href="">Nastavení</a></li>
+            <li><a href="./settings.html">Nastavení</a></li>
             <li><a onclick="leave()">Odejít</a></li>
         </ul>
         <div style="margin-left: 50px;">

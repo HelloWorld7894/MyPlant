@@ -13,7 +13,7 @@ const main_dict = {
         contextIsolation: false
     },
     resizable: true,
-    fullscreen: true
+    fullscreen: false
 }
 
 class Window{
@@ -48,15 +48,23 @@ ipcMain.on("actions", (event, data) => {
         case "leave":
             main.close()
             break
-        case "turnoff":
+        case "update_system":
+            
             break
+        case "update_application":
+            break
+        case "turnoff":
+            main.close()
+            exec("shutdown now")
+            throw new Error("Program is going to exit now")
+
     }
 })
 
 ipcMain.on("getdata", (event, data) => {
     switch(data){
         case "temp":
-            exec("./getdata.py", (error, stdout, stderr) => {
+            exec("./getdata.py temp", (error, stdout, stderr) => {
                 if (error){
                     console.log(`error: ${error.message}`);
                     return;

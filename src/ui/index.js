@@ -32,11 +32,7 @@ function drawChart() {
     chart.draw(data, options);
 }
 
-function leave(){
-    ipcRender.send("actions", "leave")
-}
-
-function update_data(){
+function update_temp(){
     let temp = document.getElementsByClassName("val-float")
     ipcRender.send("getdata", "temp")
     ipcRender.on("getdata-reply", (event, data) => {
@@ -44,4 +40,27 @@ function update_data(){
     })
 }
 
-setInterval(update_data, 1000)
+function leave(){
+    ipcRender.send("actions", "leave")
+}
+
+function update_sys(){
+    ipcRender.send("actions", "update_system")
+}
+
+function update_app(){
+    ipcRender.send("actions", "update_application")
+}
+
+function turnoff(){
+    ipcRender.send("actions", "turnoff")
+}
+
+function update_humidity(){
+}
+
+function update_graph(){
+
+}
+
+setInterval(update_temp, 3000)

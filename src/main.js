@@ -13,7 +13,7 @@ var main_dict = {
         contextIsolation: false
     },
     resizable: true,
-    fullscreen: true
+    fullscreen: false
 };
 var Window = /** @class */ (function () {
     function Window(config, path) {
@@ -45,7 +45,7 @@ electron_1.ipcMain.on("actions", function (event, data) {
 electron_1.ipcMain.on("getdata", function (event, data) {
     switch (data) {
         case "temp":
-            (0, child_process_1.exec)("./getdata.py", function (error, stdout, stderr) {
+            (0, child_process_1.exec)("./getdata.py temp", function (error, stdout, stderr) {
                 if (error) {
                     console.log("error: ".concat(error.message));
                     return;
